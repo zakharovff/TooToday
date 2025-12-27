@@ -1,9 +1,8 @@
-
-<html lang="ru">
+<html lang="ru" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Tootoday - Официальный сайт музыкальной группы</title>
+    <title>Tootoday - Official website of the music band</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -131,8 +130,58 @@
             color: white;
         }
 
+        /* Language Switcher */
+        .lang-switcher {
+            position: relative;
+            margin-left: auto;
+            margin-right: 1rem;
+        }
+
+        @media (max-width: 992px) {
+            .lang-switcher {
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            min-height: 44px;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .lang-btn i {
+            font-size: 0.8rem;
+        }
+
+        /* RTL Support */
+        [dir="rtl"] h2:after {
+            left: auto;
+            right: 0;
+        }
+
+        [dir="rtl"] .nav-links a:after {
+            left: auto;
+            right: 0;
+        }
+
         /* Touch-friendly targets */
-        button, .btn, .nav-links a, .social-link, .track, .gallery-item {
+        button, .btn, .nav-links a, .social-link, .track, .gallery-item, .lang-btn {
             touch-action: manipulation;
         }
 
@@ -183,6 +232,7 @@
             display: flex;
             list-style: none;
             gap: clamp(1rem, 2vw, 2rem);
+            align-items: center;
         }
 
         .nav-links a {
@@ -670,12 +720,12 @@
                 background-color: var(--dark);
                 flex-direction: column;
                 align-items: center;
-                justify-content: center;
-                padding: 2rem;
+                justify-content: flex-start;
+                padding: 80px 2rem 2rem;
                 transition: right 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
                 box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
                 z-index: 1000;
-                gap: 1.5rem;
+                gap: 1rem;
             }
             
             .nav-links.active {
@@ -701,6 +751,17 @@
             .tour-date-ticket {
                 padding: 1rem;
                 min-width: 100%;
+            }
+            
+            .lang-switcher {
+                order: -1;
+                width: 100%;
+                margin-bottom: 1.5rem;
+            }
+            
+            .lang-btn {
+                width: 100%;
+                justify-content: center;
             }
         }
 
@@ -786,7 +847,7 @@
 
         /* Print Styles */
         @media print {
-            .hero, footer, .btn, .hamburger, .social-links {
+            .hero, footer, .btn, .hamburger, .social-links, .lang-switcher {
                 display: none !important;
             }
             
@@ -835,6 +896,19 @@
                 --gray: #1a1a1a;
             }
         }
+        
+        /* Language transition */
+        .lang-transition {
+            transition: opacity 0.3s ease;
+        }
+        
+        .lang-hidden {
+            opacity: 0;
+        }
+        
+        .lang-visible {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -842,28 +916,34 @@
     <header id="header">
         <div class="nav-container">
             <a href="#" class="logo">TOO<span>TODAY</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li class="lang-switcher">
+                    <button class="lang-btn" id="langToggle" aria-label="Switch language">
+                        <i class="fas fa-globe"></i>
+                        <span id="currentLang">EN</span>
+                    </button>
+                </li>
+                <li><a href="#home" data-lang-key="nav.home">Главная</a></li>
+                <li><a href="#about" data-lang-key="nav.about">О группе</a></li>
+                <li><a href="#music" data-lang-key="nav.music">Музыка</a></li>
+                <li><a href="#tour" data-lang-key="nav.tour">Концерты</a></li>
+                <li><a href="#gallery" data-lang-key="nav.gallery">Галерея</a></li>
+                <li><a href="#contact" data-lang-key="nav.contact">Контакты</a></li>
+            </ul>
             <div class="hamburger" id="hamburger" aria-label="Меню" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Главная</a></li>
-                <li><a href="#about">О группе</a></li>
-                <li><a href="#music">Музыка</a></li>
-                <li><a href="#tour">Концерты</a></li>
-                <li><a href="#gallery">Галерея</a></li>
-                <li><a href="#contact">Контакты</a></li>
-            </ul>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Tootoday</h1>
-            <p>Инновационное звучание, захватывающие выступления и энергия, которая заставляет сердца биться в унисон. Присоединяйтесь к нашему музыкальному путешествию.</p>
+            <h1 data-lang-key="hero.title">Tootoday</h1>
+            <p data-lang-key="hero.subtitle">Инновационное звучание, захватывающие выступления и энергия, которая заставляет сердца биться в унисон. Присоединяйтесь к нашему музыкальному путешествию.</p>
             <div class="hero-btns">
-                <a href="#music" class="btn">Слушать музыку</a>
-                <a href="#tour" class="btn btn-outline">Ближайшие концерты</a>
+                <a href="#music" class="btn" data-lang-key="hero.btnMusic">Слушать музыку</a>
+                <a href="#tour" class="btn btn-outline" data-lang-key="hero.btnTour">Ближайшие концерты</a>
             </div>
         </div>
     </section>
@@ -871,16 +951,16 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
-            <h2>О группе</h2>
+            <h2 data-lang-key="about.title">О группе</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Tootoday — музыкальный коллектив, основанный в 2018 году в Москве. Группа объединяет в своём творчестве элементы электронной музыки, инди-рока и альтернативного звучания, создавая уникальный стиль, который быстро завоевал популярность среди слушателей.</p>
-                    <p>За время своего существования Tootoday выпустили два студийных альбома и несколько успешных синглов. Их музыка звучала на крупнейших радиостанциях страны, а клипы набирали миллионы просмотров на YouTube.</p>
-                    <p>В 2022 году группа получила премию "Открытие года" на музыкальной церемонии "Звуковая дорожка" и была номинирована на "Лучший альтернативный проект".</p>
-                    <a href="#contact" class="btn">Связаться с нами</a>
+                    <p data-lang-key="about.text1">Tootoday — музыкальный коллектив, основанный в 2018 году в Москве. Группа объединяет в своём творчестве элементы электронной музыки, инди-рока и альтернативного звучания, создавая уникальный стиль, который быстро завоевал популярность среди слушателей.</p>
+                    <p data-lang-key="about.text2">За время своего существования Tootoday выпустили два студийных альбома и несколько успешных синглов. Их музыка звучала на крупнейших радиостанциях страны, а клипы набирали миллионы просмотров на YouTube.</p>
+                    <p data-lang-key="about.text3">В 2022 году группа получила премию "Открытие года" на музыкальной церемонии "Звуковая дорожка" и была номинирована на "Лучший альтернативный проект".</p>
+                    <a href="#contact" class="btn" data-lang-key="about.btnContact">Связаться с нами</a>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Группа Tootoday">
+                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Группа Tootoday" loading="lazy">
                 </div>
             </div>
         </div>
@@ -889,8 +969,8 @@
     <!-- Music Section -->
     <section class="music" id="music">
         <div class="container">
-            <h2>Наша музыка</h2>
-            <p class="section-subtitle">Слушайте наши последние релизы и добавляйте в избранное</p>
+            <h2 data-lang-key="music.title">Наша музыка</h2>
+            <p class="section-subtitle" data-lang-key="music.subtitle">Слушайте наши последние релизы и добавляйте в избранное</p>
             
             <div class="album-container">
                 <div class="album-card">
@@ -898,9 +978,9 @@
                         <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Альбом Эхо времен" loading="lazy">
                     </div>
                     <div class="album-info">
-                        <h3>Эхо времен</h3>
-                        <p>2023 • Альбом</p>
-                        <a href="#" class="btn">Слушать</a>
+                        <h3 data-lang-key="music.album1.title">Эхо времен</h3>
+                        <p data-lang-key="music.album1.year">2023 • Альбом</p>
+                        <a href="#" class="btn" data-lang-key="music.btnListen">Слушать</a>
                     </div>
                 </div>
                 
@@ -909,9 +989,9 @@
                         <img src="https://images.unsplash.com/photo-1571974599782-87624638275c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Альбом Без границ" loading="lazy">
                     </div>
                     <div class="album-info">
-                        <h3>Без границ</h3>
-                        <p>2021 • Альбом</p>
-                        <a href="#" class="btn">Слушать</a>
+                        <h3 data-lang-key="music.album2.title">Без границ</h3>
+                        <p data-lang-key="music.album2.year">2021 • Альбом</p>
+                        <a href="#" class="btn" data-lang-key="music.btnListen">Слушать</a>
                     </div>
                 </div>
                 
@@ -920,38 +1000,38 @@
                         <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Сингл Небесный свет" loading="lazy">
                     </div>
                     <div class="album-info">
-                        <h3>Небесный свет</h3>
-                        <p>2023 • Сингл</p>
-                        <a href="#" class="btn">Слушать</a>
+                        <h3 data-lang-key="music.album3.title">Небесный свет</h3>
+                        <p data-lang-key="music.album3.year">2023 • Сингл</p>
+                        <a href="#" class="btn" data-lang-key="music.btnListen">Слушать</a>
                     </div>
                 </div>
             </div>
             
             <div class="player">
-                <h3>Популярные треки</h3>
-                <div class="track active" role="button" tabindex="0" aria-label="Воспроизвести Небесный свет">
+                <h3 data-lang-key="music.popularTracks">Популярные треки</h3>
+                <div class="track active" role="button" tabindex="0" data-lang-key="music.track1.title" aria-label="Воспроизвести Небесный свет">
                     <div class="track-number">01</div>
-                    <div class="track-title">Небесный свет</div>
+                    <div class="track-title" data-lang-key="music.track1.title">Небесный свет</div>
                     <div class="track-duration">3:45</div>
                 </div>
-                <div class="track" role="button" tabindex="0" aria-label="Воспроизвести Эхо">
+                <div class="track" role="button" tabindex="0" data-lang-key="music.track2.title" aria-label="Воспроизвести Эхо">
                     <div class="track-number">02</div>
-                    <div class="track-title">Эхо</div>
+                    <div class="track-title" data-lang-key="music.track2.title">Эхо</div>
                     <div class="track-duration">4:12</div>
                 </div>
-                <div class="track" role="button" tabindex="0" aria-label="Воспроизвести За горизонтом">
+                <div class="track" role="button" tabindex="0" data-lang-key="music.track3.title" aria-label="Воспроизвести За горизонтом">
                     <div class="track-number">03</div>
-                    <div class="track-title">За горизонтом</div>
+                    <div class="track-title" data-lang-key="music.track3.title">За горизонтом</div>
                     <div class="track-duration">3:58</div>
                 </div>
-                <div class="track" role="button" tabindex="0" aria-label="Воспроизвести Без границ">
+                <div class="track" role="button" tabindex="0" data-lang-key="music.track4.title" aria-label="Воспроизвести Без границ">
                     <div class="track-number">04</div>
-                    <div class="track-title">Без границ</div>
+                    <div class="track-title" data-lang-key="music.track4.title">Без границ</div>
                     <div class="track-duration">4:30</div>
                 </div>
-                <div class="track" role="button" tabindex="0" aria-label="Воспроизвести Времена года">
+                <div class="track" role="button" tabindex="0" data-lang-key="music.track5.title" aria-label="Воспроизвести Времена года">
                     <div class="track-number">05</div>
-                    <div class="track-title">Времена года</div>
+                    <div class="track-title" data-lang-key="music.track5.title">Времена года</div>
                     <div class="track-duration">3:20</div>
                 </div>
             </div>
@@ -961,40 +1041,40 @@
     <!-- Tour Section -->
     <section class="tour" id="tour">
         <div class="container">
-            <h2>Концерты</h2>
-            <p class="section-subtitle">Приходите на наши живые выступления и почувствуйте энергию</p>
+            <h2 data-lang-key="tour.title">Концерты</h2>
+            <p class="section-subtitle" data-lang-key="tour.subtitle">Приходите на наши живые выступления и почувствуйте энергию</p>
             
             <div class="tour-dates">
                 <div class="tour-date">
                     <div class="tour-date-info">
-                        <h3>Москва, Крокус Сити Холл</h3>
-                        <p>15 октября 2023 • 19:00</p>
-                        <p>Презентация нового альбома "Эхо времен"</p>
+                        <h3 data-lang-key="tour.date1.venue">Москва, Крокус Сити Холл</h3>
+                        <p data-lang-key="tour.date1.date">15 октября 2023 • 19:00</p>
+                        <p data-lang-key="tour.date1.description">Презентация нового альбома "Эхо времен"</p>
                     </div>
                     <div class="tour-date-ticket">
-                        <a href="#" class="btn">Купить билет</a>
+                        <a href="#" class="btn" data-lang-key="tour.btnTicket">Купить билет</a>
                     </div>
                 </div>
                 
                 <div class="tour-date">
                     <div class="tour-date-info">
-                        <h3>Санкт-Петербург, Ледовый дворец</h3>
-                        <p>22 октября 2023 • 20:00</p>
-                        <p>Специальный гость: группа "Созвездие"</p>
+                        <h3 data-lang-key="tour.date2.venue">Санкт-Петербург, Ледовый дворец</h3>
+                        <p data-lang-key="tour.date2.date">22 октября 2023 • 20:00</p>
+                        <p data-lang-key="tour.date2.description">Специальный гость: группа "Созвездие"</p>
                     </div>
                     <div class="tour-date-ticket">
-                        <a href="#" class="btn">Купить билет</a>
+                        <a href="#" class="btn" data-lang-key="tour.btnTicket">Купить билет</a>
                     </div>
                 </div>
                 
                 <div class="tour-date">
                     <div class="tour-date-info">
-                        <h3>Екатеринбург, ДИВС</h3>
-                        <p>5 ноября 2023 • 19:30</p>
-                        <p>Часть всероссийского тура "Без границ"</p>
+                        <h3 data-lang-key="tour.date3.venue">Екатеринбург, ДИВС</h3>
+                        <p data-lang-key="tour.date3.date">5 ноября 2023 • 19:30</p>
+                        <p data-lang-key="tour.date3.description">Часть всероссийского тура "Без границ"</p>
                     </div>
                     <div class="tour-date-ticket">
-                        <a href="#" class="btn">Купить билет</a>
+                        <a href="#" class="btn" data-lang-key="tour.btnTicket">Купить билет</a>
                     </div>
                 </div>
             </div>
@@ -1004,32 +1084,32 @@
     <!-- Gallery Section -->
     <section class="gallery" id="gallery">
         <div class="container">
-            <h2>Галерея</h2>
-            <p class="section-subtitle">Моменты с концертов, репетиций и жизни группы</p>
+            <h2 data-lang-key="gallery.title">Галерея</h2>
+            <p class="section-subtitle" data-lang-key="gallery.subtitle">Моменты с концертов, репетиций и жизни группы</p>
             
             <div class="gallery-grid">
-                <div class="gallery-item" role="button" tabindex="0" aria-label="Открыть изображение концерта">
+                <div class="gallery-item" role="button" tabindex="0" data-lang-key="gallery.image1.alt" aria-label="Открыть изображение концерта">
                     <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Концертное выступление" loading="lazy">
                     <div class="gallery-item-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 
-                <div class="gallery-item" role="button" tabindex="0" aria-label="Открыть изображение студии">
+                <div class="gallery-item" role="button" tabindex="0" data-lang-key="gallery.image2.alt" aria-label="Открыть изображение студии">
                     <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Студийная запись" loading="lazy">
                     <div class="gallery-item-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 
-                <div class="gallery-item" role="button" tabindex="0" aria-label="Открыть изображение репетиции">
+                <div class="gallery-item" role="button" tabindex="0" data-lang-key="gallery.image3.alt" aria-label="Открыть изображение репетиции">
                     <img src="https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Репетиция" loading="lazy">
                     <div class="gallery-item-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 
-                <div class="gallery-item" role="button" tabindex="0" aria-label="Открыть изображение встречи с фанатами">
+                <div class="gallery-item" role="button" tabindex="0" data-lang-key="gallery.image4.alt" aria-label="Открыть изображение встречи с фанатами">
                     <img src="https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Встреча с фанатами" loading="lazy">
                     <div class="gallery-item-overlay">
                         <i class="fas fa-search-plus"></i>
@@ -1042,16 +1122,16 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2>Контакты</h2>
+            <h2 data-lang-key="contact.title">Контакты</h2>
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Свяжитесь с нами</h3>
-                    <p>По вопросам сотрудничества, организации концертов или просто чтобы сказать привет!</p>
+                    <h3 data-lang-key="contact.infoTitle">Свяжитесь с нами</h3>
+                    <p data-lang-key="contact.infoSubtitle">По вопросам сотрудничества, организации концертов или просто чтобы сказать привет!</p>
                     
                     <div class="contact-details">
                         <p><i class="fas fa-envelope"></i> booking@tootoday.com</p>
                         <p><i class="fas fa-phone"></i> +7 (999) 123-45-67</p>
-                        <p><i class="fas fa-map-marker-alt"></i> Москва, ул. Музыкальная, 15</p>
+                        <p><i class="fas fa-map-marker-alt"></i> <span data-lang-key="contact.address">Москва, ул. Музыкальная, 15</span></p>
                     </div>
                     
                     <div class="social-links">
@@ -1065,11 +1145,11 @@
                 
                 <div class="contact-form">
                     <form id="contactForm">
-                        <input type="text" placeholder="Ваше имя" required aria-label="Ваше имя">
-                        <input type="email" placeholder="Ваш email" required aria-label="Ваш email">
-                        <input type="text" placeholder="Тема" required aria-label="Тема сообщения">
-                        <textarea placeholder="Ваше сообщение" required aria-label="Текст сообщения"></textarea>
-                        <button type="submit" class="btn">Отправить сообщение</button>
+                        <input type="text" placeholder="Ваше имя" required aria-label="Ваше имя" data-lang-key="contact.form.name">
+                        <input type="email" placeholder="Ваш email" required aria-label="Ваш email" data-lang-key="contact.form.email">
+                        <input type="text" placeholder="Тема" required aria-label="Тема сообщения" data-lang-key="contact.form.subject">
+                        <textarea placeholder="Ваше сообщение" required aria-label="Текст сообщения" data-lang-key="contact.form.message"></textarea>
+                        <button type="submit" class="btn" data-lang-key="contact.form.submit">Отправить сообщение</button>
                     </form>
                 </div>
             </div>
@@ -1080,7 +1160,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-logo">TOO<span>TODAY</span></div>
-            <p>Музыка, которая меняет мир. Присоединяйтесь к нашему сообществу.</p>
+            <p data-lang-key="footer.tagline">Музыка, которая меняет мир. Присоединяйтесь к нашему сообществу.</p>
             
             <div class="social-links">
                 <a href="#" class="social-link" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
@@ -1090,11 +1170,319 @@
                 <a href="#" class="social-link" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
             </div>
             
-            <p class="copyright">&copy; 2023 Tootoday. Все права защищены.</p>
+            <p class="copyright" data-lang-key="footer.copyright">&copy; 2023 Tootoday. Все права защищены.</p>
         </div>
     </footer>
 
     <script>
+        // Language data
+        const translations = {
+            ru: {
+                // Navigation
+                "nav.home": "Главная",
+                "nav.about": "О группе",
+                "nav.music": "Музыка",
+                "nav.tour": "Концерты",
+                "nav.gallery": "Галерея",
+                "nav.contact": "Контакты",
+                
+                // Hero section
+                "hero.title": "Tootoday",
+                "hero.subtitle": "Инновационное звучание, захватывающие выступления и энергия, которая заставляет сердца биться в унисон. Присоединяйтесь к нашему музыкальному путешествию.",
+                "hero.btnMusic": "Слушать музыку",
+                "hero.btnTour": "Ближайшие концерты",
+                
+                // About section
+                "about.title": "О группе",
+                "about.text1": "Tootoday — музыкальный коллектив, основанный в 2018 году в Москве. Группа объединяет в своём творчестве элементы электронной музыки, инди-рока и альтернативного звучания, создавая уникальный стиль, который быстро завоевал популярность среди слушателей.",
+                "about.text2": "За время своего существования Tootoday выпустили два студийных альбома и несколько успешных синглов. Их музыка звучала на крупнейших радиостанциях страны, а клипы набирали миллионы просмотров на YouTube.",
+                "about.text3": "В 2022 году группа получила премию 'Открытие года' на музыкальной церемонии 'Звуковая дорожка' и была номинирована на 'Лучший альтернативный проект'.",
+                "about.btnContact": "Связаться с нами",
+                
+                // Music section
+                "music.title": "Наша музыка",
+                "music.subtitle": "Слушайте наши последние релизы и добавляйте в избранное",
+                "music.album1.title": "Эхо времен",
+                "music.album1.year": "2023 • Альбом",
+                "music.album2.title": "Без границ",
+                "music.album2.year": "2021 • Альбом",
+                "music.album3.title": "Небесный свет",
+                "music.album3.year": "2023 • Сингл",
+                "music.btnListen": "Слушать",
+                "music.popularTracks": "Популярные треки",
+                "music.track1.title": "Небесный свет",
+                "music.track2.title": "Эхо",
+                "music.track3.title": "За горизонтом",
+                "music.track4.title": "Без границ",
+                "music.track5.title": "Времена года",
+                
+                // Tour section
+                "tour.title": "Концерты",
+                "tour.subtitle": "Приходите на наши живые выступления и почувствуйте энергию",
+                "tour.date1.venue": "Москва, Крокус Сити Холл",
+                "tour.date1.date": "15 октября 2023 • 19:00",
+                "tour.date1.description": "Презентация нового альбома 'Эхо времен'",
+                "tour.date2.venue": "Санкт-Петербург, Ледовый дворец",
+                "tour.date2.date": "22 октября 2023 • 20:00",
+                "tour.date2.description": "Специальный гость: группа 'Созвездие'",
+                "tour.date3.venue": "Екатеринбург, ДИВС",
+                "tour.date3.date": "5 ноября 2023 • 19:30",
+                "tour.date3.description": "Часть всероссийского тура 'Без границ'",
+                "tour.btnTicket": "Купить билет",
+                
+                // Gallery section
+                "gallery.title": "Галерея",
+                "gallery.subtitle": "Моменты с концертов, репетиций и жизни группы",
+                "gallery.image1.alt": "Концертное выступление",
+                "gallery.image2.alt": "Студийная запись",
+                "gallery.image3.alt": "Репетиция",
+                "gallery.image4.alt": "Встреча с фанатами",
+                
+                // Contact section
+                "contact.title": "Контакты",
+                "contact.infoTitle": "Свяжитесь с нами",
+                "contact.infoSubtitle": "По вопросам сотрудничества, организации концертов или просто чтобы сказать привет!",
+                "contact.address": "Москва, ул. Музыкальная, 15",
+                "contact.form.name": "Ваше имя",
+                "contact.form.email": "Ваш email",
+                "contact.form.subject": "Тема",
+                "contact.form.message": "Ваше сообщение",
+                "contact.form.submit": "Отправить сообщение",
+                
+                // Footer
+                "footer.tagline": "Музыка, которая меняет мир. Присоединяйтесь к нашему сообществу.",
+                "footer.copyright": "© 2023 Tootoday. Все права защищены.",
+                
+                // Language
+                "lang.current": "RU",
+                "lang.switch": "Switch to English",
+                "lang.ariaLabel": "Переключить язык"
+            },
+            en: {
+                // Navigation
+                "nav.home": "Home",
+                "nav.about": "About",
+                "nav.music": "Music",
+                "nav.tour": "Concerts",
+                "nav.gallery": "Gallery",
+                "nav.contact": "Contact",
+                
+                // Hero section
+                "hero.title": "Tootoday",
+                "hero.subtitle": "Innovative sound, captivating performances and energy that makes hearts beat in unison. Join our musical journey.",
+                "hero.btnMusic": "Listen to Music",
+                "hero.btnTour": "Upcoming Concerts",
+                
+                // About section
+                "about.title": "About the Band",
+                "about.text1": "Tootoday is a music collective founded in 2018 in Moscow. The band combines elements of electronic music, indie rock and alternative sound, creating a unique style that quickly gained popularity among listeners.",
+                "about.text2": "Since its formation, Tootoday has released two studio albums and several successful singles. Their music has been played on the country's largest radio stations, and music videos have garnered millions of views on YouTube.",
+                "about.text3": "In 2022, the band received the 'Discovery of the Year' award at the 'Soundtrack' music ceremony and was nominated for 'Best Alternative Project'.",
+                "about.btnContact": "Contact Us",
+                
+                // Music section
+                "music.title": "Our Music",
+                "music.subtitle": "Listen to our latest releases and add to favorites",
+                "music.album1.title": "Echo of Times",
+                "music.album1.year": "2023 • Album",
+                "music.album2.title": "Without Borders",
+                "music.album2.year": "2021 • Album",
+                "music.album3.title": "Heavenly Light",
+                "music.album3.year": "2023 • Single",
+                "music.btnListen": "Listen",
+                "music.popularTracks": "Popular Tracks",
+                "music.track1.title": "Heavenly Light",
+                "music.track2.title": "Echo",
+                "music.track3.title": "Beyond the Horizon",
+                "music.track4.title": "Without Borders",
+                "music.track5.title": "Seasons",
+                
+                // Tour section
+                "tour.title": "Concerts",
+                "tour.subtitle": "Come to our live performances and feel the energy",
+                "tour.date1.venue": "Moscow, Crocus City Hall",
+                "tour.date1.date": "October 15, 2023 • 7:00 PM",
+                "tour.date1.description": "Presentation of the new album 'Echo of Times'",
+                "tour.date2.venue": "St. Petersburg, Ice Palace",
+                "tour.date2.date": "October 22, 2023 • 8:00 PM",
+                "tour.date2.description": "Special guest: band 'Constellation'",
+                "tour.date3.venue": "Yekaterinburg, DIVS",
+                "tour.date3.date": "November 5, 2023 • 7:30 PM",
+                "tour.date3.description": "Part of the nationwide 'Without Borders' tour",
+                "tour.btnTicket": "Buy Ticket",
+                
+                // Gallery section
+                "gallery.title": "Gallery",
+                "gallery.subtitle": "Moments from concerts, rehearsals and band life",
+                "gallery.image1.alt": "Concert performance",
+                "gallery.image2.alt": "Studio recording",
+                "gallery.image3.alt": "Rehearsal",
+                "gallery.image4.alt": "Fan meeting",
+                
+                // Contact section
+                "contact.title": "Contact",
+                "contact.infoTitle": "Get in Touch",
+                "contact.infoSubtitle": "For collaboration, concert organization, or just to say hello!",
+                "contact.address": "Moscow, Music Street, 15",
+                "contact.form.name": "Your Name",
+                "contact.form.email": "Your Email",
+                "contact.form.subject": "Subject",
+                "contact.form.message": "Your Message",
+                "contact.form.submit": "Send Message",
+                
+                // Footer
+                "footer.tagline": "Music that changes the world. Join our community.",
+                "footer.copyright": "© 2023 Tootoday. All rights reserved.",
+                
+                // Language
+                "lang.current": "EN",
+                "lang.switch": "Переключить на русский",
+                "lang.ariaLabel": "Switch language"
+            }
+        };
+
+        // Language management
+        class LanguageManager {
+            constructor() {
+                this.currentLang = localStorage.getItem('tootoday-lang') || 'ru';
+                this.langToggle = document.getElementById('langToggle');
+                this.currentLangElement = document.getElementById('currentLang');
+                this.isChanging = false;
+                
+                this.init();
+            }
+            
+            init() {
+                // Set initial language
+                this.updateLanguage(this.currentLang);
+                
+                // Add event listener for language toggle
+                this.langToggle.addEventListener('click', () => {
+                    this.toggleLanguage();
+                });
+                
+                // Update page direction for RTL languages if needed
+                this.updatePageDirection();
+            }
+            
+            toggleLanguage() {
+                const newLang = this.currentLang === 'ru' ? 'en' : 'ru';
+                this.updateLanguage(newLang);
+                
+                // Save to localStorage
+                localStorage.setItem('tootoday-lang', newLang);
+            }
+            
+            updateLanguage(lang) {
+                if (this.isChanging) return;
+                
+                this.isChanging = true;
+                this.currentLang = lang;
+                
+                // Update language toggle button
+                this.currentLangElement.textContent = translations[lang]["lang.current"];
+                this.langToggle.setAttribute('aria-label', translations[lang]["lang.ariaLabel"]);
+                
+                // Update document language attribute
+                document.documentElement.lang = lang;
+                
+                // Apply transition effect
+                this.applyTransitionEffect(() => {
+                    // Update all translatable elements
+                    this.updateTextContent(lang);
+                    
+                    // Update form placeholders
+                    this.updateFormPlaceholders(lang);
+                    
+                    // Update ARIA labels
+                    this.updateAriaLabels(lang);
+                    
+                    this.isChanging = false;
+                });
+            }
+            
+            updateTextContent(lang) {
+                // Find all elements with data-lang-key attribute
+                const translatableElements = document.querySelectorAll('[data-lang-key]');
+                
+                translatableElements.forEach(element => {
+                    const key = element.getAttribute('data-lang-key');
+                    
+                    if (translations[lang][key]) {
+                        // For input/textarea placeholders, handle separately
+                        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                            element.setAttribute('placeholder', translations[lang][key]);
+                        } else {
+                            element.textContent = translations[lang][key];
+                        }
+                    }
+                });
+            }
+            
+            updateFormPlaceholders(lang) {
+                // Update form placeholders that might not have data-lang-key
+                const formInputs = document.querySelectorAll('#contactForm input, #contactForm textarea');
+                formInputs.forEach(input => {
+                    const key = input.getAttribute('data-lang-key');
+                    if (key && translations[lang][key]) {
+                        input.setAttribute('placeholder', translations[lang][key]);
+                    }
+                });
+            }
+            
+            updateAriaLabels(lang) {
+                // Update track aria labels
+                document.querySelectorAll('.track').forEach((track, index) => {
+                    const key = `music.track${index + 1}.title`;
+                    if (translations[lang][key]) {
+                        const trackTitle = translations[lang][key];
+                        track.setAttribute('aria-label', lang === 'ru' ? 
+                            `Воспроизвести ${trackTitle}` : 
+                            `Play ${trackTitle}`);
+                    }
+                });
+                
+                // Update gallery aria labels
+                document.querySelectorAll('.gallery-item').forEach((item, index) => {
+                    const key = `gallery.image${index + 1}.alt`;
+                    if (translations[lang][key]) {
+                        const imageAlt = translations[lang][key];
+                        item.setAttribute('aria-label', lang === 'ru' ? 
+                            `Открыть изображение ${imageAlt.toLowerCase()}` : 
+                            `Open image of ${imageAlt.toLowerCase()}`);
+                    }
+                });
+            }
+            
+            applyTransitionEffect(callback) {
+                // Add transition class to body
+                document.body.classList.add('lang-transition', 'lang-hidden');
+                
+                // Wait for transition
+                setTimeout(() => {
+                    callback();
+                    
+                    // Remove transition class
+                    setTimeout(() => {
+                        document.body.classList.remove('lang-hidden');
+                        
+                        setTimeout(() => {
+                            document.body.classList.remove('lang-transition');
+                        }, 300);
+                    }, 50);
+                }, 300);
+            }
+            
+            updatePageDirection() {
+                // For RTL languages, you would add:
+                // document.documentElement.dir = 'rtl';
+                // But for now, we only have LTR languages
+            }
+        }
+
+        // Initialize language manager
+        const languageManager = new LanguageManager();
+
         // Mobile Navigation Toggle
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
@@ -1161,10 +1549,12 @@
                 
                 // In a real implementation, this would play the selected track
                 const trackTitle = track.querySelector('.track-title').textContent;
-                console.log(`Воспроизведение: ${trackTitle}`);
+                console.log(`Playing: ${trackTitle}`);
                 
                 // Accessibility feedback
-                track.setAttribute('aria-label', `Воспроизводится ${trackTitle}`);
+                const lang = languageManager.currentLang;
+                const playText = lang === 'ru' ? 'Воспроизводится' : 'Now playing';
+                track.setAttribute('aria-label', `${playText} ${trackTitle}`);
             });
             
             // Keyboard navigation for tracks
@@ -1194,10 +1584,20 @@
             });
             
             if (isValid) {
-                alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+                const lang = languageManager.currentLang;
+                const message = lang === 'ru' 
+                    ? 'Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.' 
+                    : 'Thank you for your message! We will contact you soon.';
+                
+                alert(message);
                 this.reset();
             } else {
-                alert('Пожалуйста, заполните все поля формы.');
+                const lang = languageManager.currentLang;
+                const message = lang === 'ru' 
+                    ? 'Пожалуйста, заполните все поля формы.' 
+                    : 'Please fill in all form fields.';
+                
+                alert(message);
             }
         });
         
@@ -1228,7 +1628,12 @@
         // Gallery image click
         document.querySelectorAll('.gallery-item').forEach(item => {
             item.addEventListener('click', () => {
-                console.log('В реальном приложении здесь бы открылось модальное окно с увеличенным изображением.');
+                const lang = languageManager.currentLang;
+                const message = lang === 'ru' 
+                    ? 'В реальном приложении здесь бы открылось модальное окно с увеличенным изображением.' 
+                    : 'In a real application, a modal window with an enlarged image would open here.';
+                
+                console.log(message);
             });
             
             item.addEventListener('keydown', (e) => {
@@ -1266,11 +1671,29 @@
         
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-            // Set current year in footer if needed
+            // Set current year in footer
             const yearElement = document.querySelector('.copyright');
             if (yearElement) {
-                yearElement.innerHTML = yearElement.innerHTML.replace('2023', new Date().getFullYear());
+                const currentYear = new Date().getFullYear();
+                yearElement.innerHTML = yearElement.innerHTML.replace('2023', currentYear);
             }
+            
+            // Update page title based on language
+            const updatePageTitle = () => {
+                const lang = languageManager.currentLang;
+                document.title = lang === 'ru' 
+                    ? 'Tootoday - Официальный сайт музыкальной группы' 
+                    : 'Tootoday - Official website of the music band';
+            };
+            
+            // Listen for language changes
+            const originalUpdateLanguage = languageManager.updateLanguage;
+            languageManager.updateLanguage = function(lang) {
+                originalUpdateLanguage.call(this, lang);
+                updatePageTitle();
+            };
+            
+            updatePageTitle();
         });
     </script>
 </body>
