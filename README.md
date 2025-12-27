@@ -926,7 +926,7 @@
                 <li><a href="#home" data-lang-key="nav.home">Главная</a></li>
                 <li><a href="#about" data-lang-key="nav.about">О группе</a></li>
                 <li><a href="#music" data-lang-key="nav.music">Музыка</a></li>
-                <li><a href="#tour" data-lang-key="nav.tour">Концерты</a></li>
+                <li><a href="#tour" data-lang-key="nav.tour">События</a></li>
                 <li><a href="#gallery" data-lang-key="nav.gallery">Галерея</a></li>
                 <li><a href="#contact" data-lang-key="nav.contact">Контакты</a></li>
             </ul>
@@ -943,7 +943,7 @@
             <p data-lang-key="hero.subtitle">Инновационное звучание, захватывающие выступления и энергия, которая заставляет сердца биться в унисон. Присоединяйтесь к нашему музыкальному путешествию.</p>
             <div class="hero-btns">
                 <a href="#music" class="btn" data-lang-key="hero.btnMusic">Слушать музыку</a>
-                <a href="#tour" class="btn btn-outline" data-lang-key="hero.btnTour">Ближайшие концерты</a>
+                <a href="#tour" class="btn btn-outline" data-lang-key="hero.btnTour">События</a>
             </div>
         </div>
     </section>
@@ -954,9 +954,9 @@
             <h2 data-lang-key="about.title">О группе</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p data-lang-key="about.text1">Tootoday — музыкальный коллектив, основанный в 2018 году в Москве. Группа объединяет в своём творчестве элементы электронной музыки, инди-рока и альтернативного звучания, создавая уникальный стиль, который быстро завоевал популярность среди слушателей.</p>
-                    <p data-lang-key="about.text2">За время своего существования Tootoday выпустили два студийных альбома и несколько успешных синглов. Их музыка звучала на крупнейших радиостанциях страны, а клипы набирали миллионы просмотров на YouTube.</p>
-                    <p data-lang-key="about.text3">В 2022 году группа получила премию "Открытие года" на музыкальной церемонии "Звуковая дорожка" и была номинирована на "Лучший альтернативный проект".</p>
+                    <p data-lang-key="about.text1">Tootoday — музыкальный коллектив, основанный в 2017 году в Москве. Изначально это была инструментальная группа, основными инструментами являлись баян и фортепиано. Постепенно фокус сместился в сторону электронной музыки. 
+                    Группа объединяет в своём творчестве различные оттенки электронной музыки от легкого Embient до более тяжелых Dubstep и D'n'B, создавая уникальный стиль, который быстро завоевал популярность среди слушателей.</p>
+                    <p data-lang-key="about.text2">За время своего существования Tootoday выпустили два студийных альбома и несколько успешных синглов. Наша музыка звучит на крупнейших стриминговых платформах страны и мира.</p>
                     <a href="#contact" class="btn" data-lang-key="about.btnContact">Связаться с нами</a>
                 </div>
                 <div class="about-image">
