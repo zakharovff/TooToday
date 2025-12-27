@@ -970,7 +970,7 @@
     <section class="music" id="music">
         <div class="container">
             <h2 data-lang-key="music.title">Наша музыка</h2>
-            <p class="section-subtitle" data-lang-key="music.subtitle">Слушайте наши последние релизы и добавляйте в избранное</p>
+            <p class="section-subtitle" data-lang-key="music.subtitle">Слушайте наши последние релизы ставьте лайки и добавляйте в избранное</p>
             
             <div class="album-container">
                 <div class="album-card">
