@@ -1,3 +1,20 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/9bdbbd1aee96619c2e145fd8e33747e8/486c3f65-e4e1-484d-800e-7fba93256a18/canvas-app/index.html?rnd=1766838718364&utm_source=perplexity
+Subject: =?utf-8?Q?TooToday=20|=20=D0=9C=D1=83=D0=B7=D1=8B=D0=BA=D0=B0=D0=BB=D1=8C?=
+ =?utf-8?Q?=D0=BD=D0=B0=D1=8F=20=D0=B3=D1=80=D1=83=D0=BF=D0=BF=D0=B0?=
+Date: Sat, 27 Dec 2025 15:33:18 +0300
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--6nmVqCc5CSGBgGhaxQqK7n8xasz4CAVKeZplvSoYX8----"
+
+
+------MultipartBoundary--6nmVqCc5CSGBgGhaxQqK7n8xasz4CAVKeZplvSoYX8----
+Content-Type: text/html
+Content-ID: <frame-DBEEFEB1AE79EF21DE503C1AC0F827FB@mhtml.blink>
+Content-Transfer-Encoding: binary
+Content-Location: https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/9bdbbd1aee96619c2e145fd8e33747e8/486c3f65-e4e1-484d-800e-7fba93256a18/canvas-app/index.html?rnd=1766838718364&utm_source=perplexity
+
 <!DOCTYPE html><html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" type="text/css" href="cid:css-9798fa42-a413-48ba-a248-528acac91cef@mhtml.blink" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -336,3 +353,5 @@ footer { background: var(--color-dark); color: white; text-align: center; paddin
   .section-title { font-size: 1.5rem; }
   .contact-form { padding: 0px; }
 }
+------MultipartBoundary--6nmVqCc5CSGBgGhaxQqK7n8xasz4CAVKeZplvSoYX8------
+
