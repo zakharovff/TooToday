@@ -1,1 +1,702 @@
-https://tootoday-readme.md/?utm_source=perplexity
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tootoday - Музыкальная группа</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #6a11cb;
+            --secondary-color: #2575fc;
+            --dark-color: #121212;
+            --light-color: #f8f9fa;
+            --text-color: #333;
+            --text-light: #f8f9fa;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .lang-option {
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .lang-option.active {
+            background-color: white;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(rgba(106, 17, 203, 0.85), rgba(37, 117, 252, 0.85)), url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-text {
+            flex: 1;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Music Section */
+        .music-section {
+            background-color: #f0f4f8;
+        }
+
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .platform-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .platform-icon {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem;
+            font-size: 2.5rem;
+        }
+
+        .platform-content {
+            padding: 1.5rem;
+        }
+
+        .platform-content h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .platform-btn {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .platform-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+        }
+
+        /* Contacts Section */
+        .contacts-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            justify-content: center;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.3rem;
+        }
+
+        .contact-text a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--text-light);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-link {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            margin-top: 1.5rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .platforms-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s ease;
+            }
+            
+            nav.active {
+                max-height: 300px;
+                margin-top: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .hero {
+                padding: 100px 0 40px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .platforms-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-music"></i>
+                <span class="logo-text">Tootoday</span>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#about" class="nav-link" data-lang="ru">О группе</a></li>
+                    <li><a href="#music" class="nav-link" data-lang="ru">Наша музыка</a></li>
+                    <li><a href="#contacts" class="nav-link" data-lang="ru">Контакты</a></li>
+                </ul>
+            </nav>
+            
+            <div class="language-switcher" id="languageSwitcher">
+                <div class="lang-option active" data-lang="ru">RU</div>
+                <div class="lang-option" data-lang="en">EN</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 id="heroTitle">Tootoday</h1>
+            <p id="heroText">Музыкальный коллектив, объединяющий электронные жанры от Ambient до Dubstep</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title" data-lang="ru">О группе</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p id="aboutText">Tootoday — музыкальный коллектив, основанный в 2017 году в Москве. Изначально это была инструментальная группа, основными инструментами являлись баян и фортепиано. Постепенно фокус сместился в сторону электронной музыки. Группа объединяет в своём творчестве различные оттенки электронной музыки от легкого Embient до более тяжелых Dubstep и R'n'B, создавая уникальный стиль, который быстро завоевал популярность среди слушателей. За время своего существования Tootoday выпустили два студийных альбома и несколько успешных синглов. Участники являются призерами различных музыкальных конкурсов и концертов. Наша музыка звучит на крупнейших стриминговых платформах страны и мира.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1519281682544-5f37c4b14c47?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Музыканты группы Tootoday">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Section -->
+    <section id="music" class="music-section">
+        <div class="container">
+            <h2 class="section-title" data-lang="ru">Наша музыка</h2>
+            <div class="platforms-grid">
+                <!-- Платформы будут заполнены через JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts Section -->
+    <section id="contacts">
+        <div class="container">
+            <h2 class="section-title" data-lang="ru">Контакты</h2>
+            <div class="contacts-content">
+                <div class="contact-info">
+                    <h3 data-lang="ru">Свяжитесь с нами</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <p data-lang="ru">Электронная почта:</p>
+                            <a href="mailto:tootoday.band@gmail.com">tootoday.band@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-telegram"></i>
+                        </div>
+                        <div class="contact-text">
+                            <p data-lang="ru">Telegram канал:</p>
+                            <a href="https://t.me/ToOtOdAy" target="_blank">@ToOtOdAy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <i class="fas fa-music"></i>
+                    <span class="logo-text">Tootoday</span>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-vk"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-spotify"></i></a>
+                </div>
+                <p class="copyright" id="copyrightText">© 2023 Tootoday. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Данные для страницы
+        const pageData = {
+            ru: {
+                heroTitle: "Tootoday",
+                heroText: "Музыкальный коллектив, объединяющий электронные жанры от Ambient до Dubstep",
+                aboutTitle: "О группе",
+                aboutText: "Tootoday — музыкальный коллектив, основанный в 2017 году в Москве. Изначально это была инструментальная группа, основными инструментами являлись баян и фортепиано. Постепенно фокус сместился в сторону электронной музыки. Группа объединяет в своём творчестве различные оттенки электронной музыки от легкого Embient до более тяжелых Dubstep и R'n'B, создавая уникальный стиль, который быстро завоевал популярность среди слушателей. За время своего существования Tootoday выпустили два студийных альбома и несколько успешных синглов. Участники являются призерами различных музыкальных конкурсов и концертов. Наша музыка звучит на крупнейших стриминговых платформах страны и мира.",
+                musicTitle: "Наша музыка",
+                contactsTitle: "Контакты",
+                emailLabel: "Электронная почта:",
+                telegramLabel: "Telegram канал:",
+                copyrightText: "© 2023 Tootoday. Все права защищены.",
+                navAbout: "О группе",
+                navMusic: "Наша музыка",
+                navContacts: "Контакты"
+            },
+            en: {
+                heroTitle: "Tootoday",
+                heroText: "A musical group blending electronic genres from Ambient to Dubstep",
+                aboutTitle: "About Us",
+                aboutText: "Tootoday is a musical collective founded in 2017 in Moscow. Initially, it was an instrumental group with bayan and piano as the main instruments. Gradually, the focus shifted towards electronic music. The group combines various shades of electronic music from light Ambient to heavier Dubstep and R'n'B, creating a unique style that quickly gained popularity among listeners. During its existence, Tootoday has released two studio albums and several successful singles. The members are winners of various music competitions and concerts. Our music is available on the largest streaming platforms in the country and worldwide.",
+                musicTitle: "Our Music",
+                contactsTitle: "Contacts",
+                emailLabel: "Email:",
+                telegramLabel: "Telegram channel:",
+                copyrightText: "© 2023 Tootoday. All rights reserved.",
+                navAbout: "About",
+                navMusic: "Music",
+                navContacts: "Contacts"
+            }
+        };
+
+        // Данные для стриминговых платформ
+        const musicPlatforms = [
+            { name: "Яндекс", icon: "fab fa-yandex", url: "https://music.yandex.com/artist/25201658?utm_medium=copy_link&ref_id=ca7872c1-e376-4cdc-8226-7ad588dd86c2", nameEn: "Yandex" },
+            { name: "Звук", icon: "fas fa-music", url: "https://zvuk.com/artist/214040541", nameEn: "Zvuk" },
+            { name: "ВКонтакте", icon: "fab fa-vk", url: "https://vk.com/artist/5233716049124375436", nameEn: "VK" },
+            { name: "МТС Музыка", icon: "fas fa-signal", url: "https://mts-music-spo.onelink.me/sKFX/vkyuavzp", nameEn: "MTS Music" },
+            { name: "Одноклассники", icon: "fab fa-odnoklassniki", url: "https://m.ok.ru/music/artist/122909431251668?ysclid=mjhi82rvg6276337956", nameEn: "OK" },
+            { name: "Spotify", icon: "fab fa-spotify", url: "https://open.spotify.com/artist/0qLM7oVOVfvIkdBwQnOdO8?si=zNlUGOTNTHOY0wKfX6-wcg", nameEn: "Spotify" },
+            { name: "Amazon", icon: "fab fa-amazon", url: "https://music.amazon.com/artists/B0G9MZ5L1D/tootoday?marketplaceId=ART4WZ8MWBX2Y&musicTerritory=MX&ref=dm_sh_XYOF0r1mrtMbG8e14MlaVzdQn", nameEn: "Amazon" }
+        ];
+
+        // Текущий язык
+        let currentLang = 'ru';
+
+        // DOM элементы
+        const languageSwitcher = document.getElementById('languageSwitcher');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        const platformsGrid = document.querySelector('.platforms-grid');
+
+        // Функция переключения языка
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Обновляем активную кнопку переключателя языка
+            document.querySelectorAll('.lang-option').forEach(option => {
+                option.classList.remove('active');
+                if (option.getAttribute('data-lang') === lang) {
+                    option.classList.add('active');
+                }
+            });
+            
+            // Обновляем тексты на странице
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                if (pageData[lang][key]) {
+                    element.textContent = pageData[lang][key];
+                }
+            });
+            
+            // Обновляем навигационные ссылки
+            document.querySelectorAll('.nav-link').forEach(link => {
+                const key = link.getAttribute('data-lang');
+                if (pageData[lang][key]) {
+                    link.textContent = pageData[lang][key];
+                }
+            });
+            
+            // Обновляем заголовки страницы
+            document.getElementById('heroTitle').textContent = pageData[lang].heroTitle;
+            document.getElementById('heroText').textContent = pageData[lang].heroText;
+            document.getElementById('aboutText').textContent = pageData[lang].aboutText;
+            document.getElementById('copyrightText').textContent = pageData[lang].copyrightText;
+            
+            // Обновляем платформы
+            renderPlatforms();
+        }
+
+        // Функция отрисовки платформ
+        function renderPlatforms() {
+            platformsGrid.innerHTML = '';
+            
+            musicPlatforms.forEach(platform => {
+                const platformName = currentLang === 'ru' ? platform.name : platform.nameEn;
+                
+                const platformCard = document.createElement('div');
+                platformCard.className = 'platform-card';
+                platformCard.innerHTML = `
+                    <div class="platform-icon">
+                        <i class="${platform.icon}"></i>
+                    </div>
+                    <div class="platform-content">
+                        <h3>${platformName}</h3>
+                        <a href="${platform.url}" target="_blank" class="platform-btn">
+                            ${currentLang === 'ru' ? 'Слушать' : 'Listen'}
+                        </a>
+                    </div>
+                `;
+                
+                platformsGrid.appendChild(platformCard);
+            });
+        }
+
+        // Инициализация страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            // Отрисовываем платформы
+            renderPlatforms();
+            
+            // Обработчики для переключения языка
+            document.querySelectorAll('.lang-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    if (lang !== currentLang) {
+                        switchLanguage(lang);
+                    }
+                });
+            });
+            
+            // Обработчик для мобильного меню
+            mobileMenuBtn.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                this.innerHTML = mainNav.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Закрытие меню при клике на ссылку
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    mainNav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+            
+            // Плавная прокрутка к разделам
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
