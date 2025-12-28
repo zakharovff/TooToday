@@ -33,10 +33,6 @@
             --container-width: 1200px;
         }
 
-        [data-lang="en"] {
-            display: none;
-        }
-
         /* Сброс и базовые стили */
         * {
             margin: 0;
@@ -207,6 +203,7 @@
             width: 100%;
         }
 
+        /* Кнопка переключения языка - исправлено */
         .language-switcher {
             display: flex;
             align-items: center;
@@ -214,6 +211,7 @@
             border-radius: 50px;
             padding: 5px;
             cursor: pointer;
+            margin-left: 20px;
         }
 
         .language-btn {
@@ -240,6 +238,7 @@
             color: white;
             font-size: 1.5rem;
             cursor: pointer;
+            margin-left: 20px;
         }
 
         /* Герой секция */
@@ -467,6 +466,7 @@
             
             .mobile-menu-btn {
                 display: block;
+                order: 2;
             }
             
             nav {
@@ -474,6 +474,7 @@
                 max-height: 0;
                 overflow: hidden;
                 transition: max-height 0.5s ease;
+                order: 4;
             }
             
             nav.active {
@@ -484,6 +485,11 @@
             nav ul {
                 flex-direction: column;
                 gap: 15px;
+            }
+            
+            .language-switcher {
+                order: 3;
+                margin-left: auto;
             }
             
             .hero {
@@ -523,6 +529,19 @@
             .contact-info {
                 padding: 25px;
             }
+            
+            .header-container {
+                justify-content: space-between;
+            }
+            
+            .language-switcher {
+                margin-left: 10px;
+            }
+            
+            .language-btn {
+                padding: 6px 15px;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -535,15 +554,11 @@
                 <span>Tootoday</span>
             </a>
             
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-            
             <nav id="mainNav">
                 <ul>
-                    <li><a href="#about" class="nav-link" data-lang-key="about">О группе</a></li>
-                    <li><a href="#music" class="nav-link" data-lang-key="music">Наша музыка</a></li>
-                    <li><a href="#contacts" class="nav-link" data-lang-key="contacts">Контакты</a></li>
+                    <li><a href="#about" class="nav-link">О группе</a></li>
+                    <li><a href="#music" class="nav-link">Наша музыка</a></li>
+                    <li><a href="#contacts" class="nav-link">Контакты</a></li>
                 </ul>
             </nav>
             
@@ -551,6 +566,10 @@
                 <button class="language-btn active" data-lang="ru">RU</button>
                 <button class="language-btn" data-lang="en">EN</button>
             </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
 
@@ -559,21 +578,21 @@
         <!-- Герой секция -->
         <section class="hero">
             <div class="container">
-                <h1 data-lang-key="heroTitle">Tootoday</h1>
-                <p data-lang-key="heroSubtitle">Музыкальный коллектив, создающий уникальный электронный звук</p>
-                <a href="#music" class="btn" data-lang-key="listenMusic">Слушать музыку</a>
+                <h1 id="heroTitle">Tootoday</h1>
+                <p id="heroSubtitle">Музыкальный коллектив, создающий уникальный электронный звук</p>
+                <a href="#music" class="btn" id="listenMusic">Слушать музыку</a>
             </div>
         </section>
 
         <!-- О группе -->
         <section id="about" class="section">
             <div class="container">
-                <h2 data-lang-key="aboutTitle">О группе</h2>
+                <h2 id="aboutTitle">О группе</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <p data-lang-key="aboutText1">Tootoday — музыкальный коллектив, основанный в 2017 году в Москве. Изначально это была инструментальная группа, основными инструментами являлись баян и фортепиано. Постепенно фокус сместился в сторону электронной музыки.</p>
-                        <p data-lang-key="aboutText2">Группа объединяет в своём творчестве различные оттенки электронной музыки от легкого Ambient до более тяжелых Dubstep и R'n'B, создавая уникальный стиль, который быстро завоевал популярность среди слушателей.</p>
-                        <p data-lang-key="aboutText3">За время своего существования Tootoday выпустили два студийных альбома и несколько успешных синглов. Участники являются призерами различных музыкальных конкурсов и концертов. Наша музыка звучит на крупнейших стриминговых платформах страны и мира.</p>
+                        <p id="aboutText1">Tootoday — музыкальный коллектив, основанный в 2017 году в Москве. Изначально это была инструментальная группа, основными инструментами являлись баян и фортепиано. Постепенно фокус сместился в сторону электронной музыки.</p>
+                        <p id="aboutText2">Группа объединяет в своём творчестве различные оттенки электронной музыки от легкого Ambient до более тяжелых Dubstep и R'n'B, создавая уникальный стиль, который быстро завоевал популярность среди слушателей.</p>
+                        <p id="aboutText3">За время своего существования Tootoday выпустили два студийных альбома и несколько успешных синглов. Участники являются призерами различных музыкальных конкурсов и концертов. Наша музыка звучит на крупнейших стриминговых платформах страны и мира.</p>
                     </div>
                     <div class="about-image">
                         <img src="https://images.unsplash.com/photo-1519281682544-5f37c4b14c47?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Группа Tootoday в студии" loading="lazy">
@@ -585,7 +604,7 @@
         <!-- Наша музыка -->
         <section id="music" class="section music">
             <div class="container">
-                <h2 data-lang-key="musicTitle">Наша музыка</h2>
+                <h2 id="musicTitle">Наша музыка</h2>
                 <div class="platforms-grid" id="platformsContainer">
                     <!-- Платформы будут загружены через JavaScript -->
                 </div>
@@ -595,7 +614,7 @@
         <!-- Контакты -->
         <section id="contacts" class="section">
             <div class="container">
-                <h2 data-lang-key="contactsTitle">Контакты</h2>
+                <h2 id="contactsTitle">Контакты</h2>
                 <div class="contact-content">
                     <div class="contact-info">
                         <div class="contact-item">
@@ -603,7 +622,7 @@
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div class="contact-text">
-                                <h4 data-lang-key="email">Электронная почта</h4>
+                                <h4 id="emailLabel">Электронная почта</h4>
                                 <a href="mailto:tootoday.band@gmail.com">tootoday.band@gmail.com</a>
                             </div>
                         </div>
@@ -612,7 +631,7 @@
                                 <i class="fab fa-telegram"></i>
                             </div>
                             <div class="contact-text">
-                                <h4 data-lang-key="telegram">Telegram канал</h4>
+                                <h4 id="telegramLabel">Telegram канал</h4>
                                 <a href="https://t.me/ToOtOdAy" target="_blank" rel="noopener noreferrer">@ToOtOdAy</a>
                             </div>
                         </div>
@@ -630,7 +649,7 @@
                     <i class="fas fa-music"></i>
                     <span>Tootoday</span>
                 </div>
-                <p data-lang-key="footerText">Слушайте нашу музыку на всех популярных платформах</p>
+                <p id="footerText">Слушайте нашу музыку на всех популярных платформах</p>
                 <div class="social-links">
                     <a href="https://t.me/ToOtOdAy" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
                         <i class="fab fa-telegram"></i>
@@ -643,7 +662,7 @@
                     </a>
                 </div>
                 <div class="copyright">
-                    <p data-lang-key="copyright">© 2023 Tootoday. Все права защищены.</p>
+                    <p id="copyrightText">© 2023 Tootoday. Все права защищены.</p>
                 </div>
             </div>
         </div>
@@ -662,13 +681,13 @@
                 aboutText3: "За время своего существования Tootoday выпустили два студийных альбома и несколько успешных синглов. Участники являются призерами различных музыкальных конкурсов и концертов. Наша музыка звучит на крупнейших стриминговых платформах страны и мира.",
                 musicTitle: "Наша музыка",
                 contactsTitle: "Контакты",
-                email: "Электронная почта",
-                telegram: "Telegram канал",
+                emailLabel: "Электронная почта",
+                telegramLabel: "Telegram канал",
                 footerText: "Слушайте нашу музыку на всех популярных платформах",
-                copyright: "© 2023 Tootoday. Все права защищены.",
-                about: "О группе",
-                music: "Наша музыка",
-                contacts: "Контакты"
+                copyrightText: "© 2023 Tootoday. Все права защищены.",
+                navAbout: "О группе",
+                navMusic: "Наша музыка",
+                navContacts: "Контакты"
             },
             en: {
                 heroTitle: "Tootoday",
@@ -680,13 +699,13 @@
                 aboutText3: "During its existence, Tootoday has released two studio albums and several successful singles. The members are winners of various music competitions and concerts. Our music is available on the largest streaming platforms in the country and worldwide.",
                 musicTitle: "Our Music",
                 contactsTitle: "Contacts",
-                email: "Email",
-                telegram: "Telegram channel",
+                emailLabel: "Email",
+                telegramLabel: "Telegram channel",
                 footerText: "Listen to our music on all popular platforms",
-                copyright: "© 2023 Tootoday. All rights reserved.",
-                about: "About",
-                music: "Music",
-                contacts: "Contacts"
+                copyrightText: "© 2023 Tootoday. All rights reserved.",
+                navAbout: "About",
+                navMusic: "Music",
+                navContacts: "Contacts"
             }
         };
 
@@ -695,14 +714,14 @@
             {
                 name: "Яндекс.Музыка",
                 nameEn: "Yandex.Music",
-                icon: "fab fa-yandex",
+                icon: "fas fa-music",
                 url: "https://music.yandex.com/artist/25201658?utm_medium=copy_link&ref_id=ca7872c1-e376-4cdc-8226-7ad588dd86c2",
                 color: "#ffcc00"
             },
             {
                 name: "Звук",
                 nameEn: "Zvuk",
-                icon: "fas fa-music",
+                icon: "fas fa-headphones",
                 url: "https://zvuk.com/artist/214040541",
                 color: "#00a2ff"
             },
@@ -751,6 +770,7 @@
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mainNav = document.getElementById('mainNav');
         const platformsContainer = document.getElementById('platformsContainer');
+        const navLinks = document.querySelectorAll('.nav-link');
 
         // Функция инициализации страницы
         function initPage() {
@@ -812,12 +832,26 @@
         // Функция применения языка
         function applyLanguage() {
             // Обновляем тексты на странице
-            document.querySelectorAll('[data-lang-key]').forEach(element => {
-                const key = element.getAttribute('data-lang-key');
-                if (translations[currentLanguage][key]) {
-                    element.textContent = translations[currentLanguage][key];
-                }
-            });
+            document.getElementById('heroTitle').textContent = translations[currentLanguage].heroTitle;
+            document.getElementById('heroSubtitle').textContent = translations[currentLanguage].heroSubtitle;
+            document.getElementById('listenMusic').textContent = translations[currentLanguage].listenMusic;
+            document.getElementById('aboutTitle').textContent = translations[currentLanguage].aboutTitle;
+            document.getElementById('aboutText1').textContent = translations[currentLanguage].aboutText1;
+            document.getElementById('aboutText2').textContent = translations[currentLanguage].aboutText2;
+            document.getElementById('aboutText3').textContent = translations[currentLanguage].aboutText3;
+            document.getElementById('musicTitle').textContent = translations[currentLanguage].musicTitle;
+            document.getElementById('contactsTitle').textContent = translations[currentLanguage].contactsTitle;
+            document.getElementById('emailLabel').textContent = translations[currentLanguage].emailLabel;
+            document.getElementById('telegramLabel').textContent = translations[currentLanguage].telegramLabel;
+            document.getElementById('footerText').textContent = translations[currentLanguage].footerText;
+            document.getElementById('copyrightText').textContent = translations[currentLanguage].copyrightText;
+            
+            // Обновляем навигацию
+            if (navLinks.length >= 3) {
+                navLinks[0].textContent = translations[currentLanguage].navAbout;
+                navLinks[1].textContent = translations[currentLanguage].navMusic;
+                navLinks[2].textContent = translations[currentLanguage].navContacts;
+            }
             
             // Обновляем язык HTML элемента
             document.documentElement.lang = currentLanguage;
