@@ -241,15 +241,24 @@
             margin-left: 20px;
         }
 
-        /* Герой секция */
+        /* Герой секция - ВОССТАНОВЛЕНА */
         .hero {
             padding: 200px 0 100px;
             background: linear-gradient(rgba(26, 26, 46, 0.9), rgba(26, 26, 46, 0.9)), 
                         url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
             color: white;
             text-align: center;
+            margin-top: 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero .container {
+            max-width: 800px;
         }
 
         .hero h1 {
@@ -259,6 +268,7 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .hero p {
@@ -266,6 +276,13 @@
             max-width: 700px;
             margin: 0 auto 40px;
             color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero .btn {
+            font-size: 1.1rem;
+            padding: 15px 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         /* О группе секция */
@@ -494,6 +511,8 @@
             
             .hero {
                 padding: 150px 0 80px;
+                min-height: 80vh;
+                margin-top: 70px;
             }
             
             .hero h1 {
@@ -518,8 +537,17 @@
                 font-size: 2rem;
             }
             
+            .hero {
+                padding: 120px 0 60px;
+                margin-top: 60px;
+            }
+            
             .hero h1 {
                 font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
             }
             
             .platforms-grid {
@@ -575,7 +603,7 @@
 
     <!-- Главный контент -->
     <main>
-        <!-- Герой секция -->
+        <!-- Герой секция - ВОССТАНОВЛЕНА -->
         <section class="hero">
             <div class="container">
                 <h1 id="heroTitle">Tootoday</h1>
