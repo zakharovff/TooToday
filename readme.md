@@ -203,7 +203,7 @@
             width: 100%;
         }
 
-        /* Кнопка переключения языка - исправлено */
+        /* Кнопка переключения языка */
         .language-switcher {
             display: flex;
             align-items: center;
@@ -241,48 +241,98 @@
             margin-left: 20px;
         }
 
-        /* Герой секция - ВОССТАНОВЛЕНА */
+        /* Герой секция - ИСПРАВЛЕНА И ВОССТАНОВЛЕНА */
         .hero {
+            position: relative;
             padding: 200px 0 100px;
-            background: linear-gradient(rgba(26, 26, 46, 0.9), rgba(26, 26, 46, 0.9)), 
-                        url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background: linear-gradient(135deg, 
+                rgba(138, 43, 226, 0.9) 0%, 
+                rgba(74, 0, 224, 0.9) 50%, 
+                rgba(26, 26, 46, 0.9) 100%),
+                url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
+            background-attachment: fixed;
             color: white;
             text-align: center;
-            margin-top: 80px;
             min-height: 100vh;
             display: flex;
             align-items: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
+            z-index: 1;
         }
 
         .hero .container {
+            position: relative;
+            z-index: 2;
             max-width: 800px;
         }
 
         .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            font-size: 4.5rem;
+            margin-bottom: 25px;
+            background: linear-gradient(to right, #ffffff, #ffccff);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out;
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             max-width: 700px;
-            margin: 0 auto 40px;
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            margin: 0 auto 50px;
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out 0.2s both;
         }
 
         .hero .btn {
-            font-size: 1.1rem;
-            padding: 15px 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            font-size: 1.2rem;
+            padding: 16px 45px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out 0.4s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .hero .btn:hover::after {
+            left: 100%;
+        }
+
+        /* Анимация для героя */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* О группе секция */
@@ -464,7 +514,7 @@
             }
             
             .hero h1 {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
             
             .about-content {
@@ -511,16 +561,16 @@
             
             .hero {
                 padding: 150px 0 80px;
-                min-height: 80vh;
-                margin-top: 70px;
+                min-height: 90vh;
+                background-attachment: scroll;
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
             
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1.3rem;
             }
             
             .section {
@@ -538,16 +588,15 @@
             }
             
             .hero {
-                padding: 120px 0 60px;
-                margin-top: 60px;
+                padding: 130px 0 70px;
             }
             
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             .hero p {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
             
             .platforms-grid {
@@ -603,7 +652,7 @@
 
     <!-- Главный контент -->
     <main>
-        <!-- Герой секция - ВОССТАНОВЛЕНА -->
+        <!-- Герой секция - ИСПРАВЛЕНА И ВОССТАНОВЛЕНА -->
         <section class="hero">
             <div class="container">
                 <h1 id="heroTitle">Tootoday</h1>
