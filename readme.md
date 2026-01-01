@@ -839,8 +839,8 @@
                 color: "#ff9900"
             },
 {
-  "name": "BandLink",
-  "nameEn": "BandLink",
+  "name": "Band.Link",
+  "nameEn": "Band.Link",
   "icon": "fas fa-link",
   "url": "https://band.link/2WkW9",
   "color": "#3d5afe"
