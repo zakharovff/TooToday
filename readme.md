@@ -837,7 +837,14 @@
                 icon: "fab fa-amazon",
                 url: "https://music.amazon.com/artists/B0G9MZ5L1D/tootoday?marketplaceId=ART4WZ8MWBX2Y&musicTerritory=MX&ref=dm_sh_XYOF0r1mrtMbG8e14MlaVzdQn",
                 color: "#ff9900"
-            }
+            },
+{
+  "name": "BandLink",
+  "nameEn": "BandLink",
+  "icon": "fas fa-link",
+  "url": "https://band.link/2WkW9",
+  "color": "#3d5afe"
+}
         ];
 
         // Текущий язык
