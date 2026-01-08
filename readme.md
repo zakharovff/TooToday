@@ -250,7 +250,7 @@
                 rgba(138, 43, 226, 0.9) 0%, 
                 rgba(74, 0, 224, 0.9) 50%, 
                 rgba(26, 26, 46, 0.9) 100%),
-                url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+photo-заставка.jpeg;                
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
