@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Tootoday - музыкальный коллектив из Москвы, создающий уникальный электронный звук. Слушайте нашу музыку на всех популярных стриминговых платформах.">
-    <meta name="keywords" content="Tootoday, музыкальная группа, электронная музыка, Ambient, Dubstep, D'n'B, Drum, Bass">
+    <meta name="keywords" content="Tootoday, музыкальная группа, электронная музыка, Ambient, Dubstep, D'n'B, Drum, Bass, Hardcore">
     <meta name="author" content="Tootoday">
     <meta property="og:title" content="Tootoday - Музыкальный коллектив">
     <meta property="og:description" content="Tootoday - музыкальный коллектив из Москвы, создающий уникальный электронный звук">
