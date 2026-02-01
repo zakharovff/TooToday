@@ -841,7 +841,7 @@
 {
                 name: "Apple Музыка",
                 nameEn: "Apple Music",
-                icon: "fas apple",
+                icon: "fab apple",
                 url: "https://music.apple.com/us/artist/tootoday/1866143169",
                 color: "#e30613"
             },
