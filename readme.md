@@ -843,7 +843,7 @@
                 nameEn: "Apple Music",
                 icon: "fab fa-apple",
                 url: "https://music.apple.com/us/artist/tootoday/1866143169",
-                color: "#e30613"
+                color: "#000000"
             },
 {
   "name": "Band.Link",
