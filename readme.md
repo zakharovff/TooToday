@@ -790,8 +790,8 @@
         // Данные о стриминговых платформах
         const platforms = [
             {
-                name: "Яндекс.Музыка",
-                nameEn: "Yandex.Music",
+                name: "Яндекс Музыка",
+                nameEn: "Yandex Music",
                 icon: "fas fa-music",
                 url: "https://music.yandex.com/artist/25201658?utm_medium=copy_link&ref_id=ca7872c1-e376-4cdc-8226-7ad588dd86c2",
                 color: "#ffcc00"
@@ -832,16 +832,16 @@
                 color: "#1db954"
             },
             {
-                name: "Amazon Music",
+                name: "Amazon Музыка",
                 nameEn: "Amazon Music",
                 icon: "fab fa-amazon",
                 url: "https://music.amazon.com/artists/B0G9MZ5L1D/tootoday?marketplaceId=ART4WZ8MWBX2Y&musicTerritory=MX&ref=dm_sh_XYOF0r1mrtMbG8e14MlaVzdQn",
                 color: "#ff9900"
             },
 {
-                name: "Apple.Music",
-                nameEn: "Apple.Music",
-                icon: "fas fa-music",
+                name: "Apple Музыка",
+                nameEn: "Apple Music",
+                icon: "fas apple",
                 url: "https://music.apple.com/us/artist/tootoday/1866143169",
                 color: "#e30613"
             },
