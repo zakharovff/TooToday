@@ -839,6 +839,13 @@
                 color: "#ff9900"
             },
 {
+                name: "Apple.Music",
+                nameEn: "Apple.Music",
+                icon: "fas fa-music",
+                url: "https://music.apple.com/us/artist/tootoday/1866143169",
+                color: "#e30613"
+            },
+{
   "name": "Band.Link",
   "nameEn": "Band.Link",
   "icon": "fas fa-link",
