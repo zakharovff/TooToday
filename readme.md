@@ -710,7 +710,7 @@
                             </div>
                             <div class="contact-text">
                                 <h4 id="telegramLabel">Telegram канал</h4>
-                                <a href="https://t.me/ToOtOdAy" target="_blank" rel="noopener noreferrer">@ToOtOdAy</a>
+                                <a href="https://t.me/Curlykin" target="_blank" rel="noopener noreferrer">@Curlykin</a>
                             </div>
                         </div>
                     </div>
