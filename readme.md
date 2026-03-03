@@ -729,7 +729,7 @@
                 </div>
                 <p id="footerText">Слушайте нашу музыку на всех популярных платформах</p>
                 <div class="social-links">
-                    <a href="https://t.me/ToOtOdAy" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                    <a href="https://t.me/Curlykin" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
                         <i class="fab fa-telegram"></i>
                     </a>
                     <a href="https://vk.com/artist/5233716049124375436" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="VKontakte">
