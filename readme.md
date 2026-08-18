@@ -704,15 +704,15 @@
                                 <a href="mailto:tootoday.band@gmail.com">tootoday.band@gmail.com</a>
                             </div>
                         </div>
-                        <div class="contact-item">
+                   <!--     <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fab fa-telegram"></i>
                             </div>
                             <div class="contact-text">
                                 <h4 id="telegramLabel">Telegram канал</h4>
                                 <a href="https://t.me/Curlykin" target="_blank" rel="noopener noreferrer">@Curlykin</a>
-                            </div>
-                        </div>
+                            </div> 
+                        </div> -->
                     </div>
                 </div>
             </div>
